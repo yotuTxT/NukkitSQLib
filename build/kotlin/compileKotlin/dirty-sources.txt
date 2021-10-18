@@ -1,0 +1,3 @@
+C:\GitHub\NukkitSQLib\src\main\kotlin\com\yotu\command\StatusCommand.kt
+C:\GitHub\NukkitSQLib\src\main\kotlin\com\yotu\Main.kt
+C:\GitHub\NukkitSQLib\src\main\kotlin\com\yotu\PlayerStatus.kt
