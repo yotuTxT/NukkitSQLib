@@ -28,13 +28,13 @@ class StatusCommand: Command("status") {
             val money = data.single()[PlayerStatus.money]
             val exp = data.single()[PlayerStatus.exp]
             val level = data.single()[PlayerStatus.level]
-            val break_amount = data.single()[PlayerStatus.break_amount]
+            val breakAmount = data.single()[PlayerStatus.break_amount]
 
             sender.sendMessage("""
                 §2$name：
                   所持金　：$money
                   レベル　：$level（総経験値：$exp）
-                  総整地量：$break_amount
+                  総整地量：$breakAmount
             """.trimIndent())
             }
         return true

@@ -1,0 +1,8 @@
+main: com.yotu.Main
+name: NukkitSQLib
+version: 1.0.0
+api: [1.0.13]
+
+permissions:
+  NukkitSQLib.status:
+    default: "op"

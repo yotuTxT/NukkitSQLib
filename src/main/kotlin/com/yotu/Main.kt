@@ -6,12 +6,16 @@ import cn.nukkit.event.player.PlayerJoinEvent
 import cn.nukkit.plugin.PluginBase
 import com.yotu.command.StatusCommand
 import org.jetbrains.exposed.sql.Database
+import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.transactions.transaction
 
 class Main: PluginBase(), Listener {
     override fun onEnable() {
-        Database.connect("jdbc:sqlite:/data/data.db", "org.sqlite.JDBC")
+        Database.connect("jdbc:sqlite:\\$dataFolder\\data\\data", "org.sqlite.JDBC")
+        transaction {
+            SchemaUtils.create(PlayerStatus)
+        }
 
         this.server.pluginManager.registerEvents(this, this)
         this.server.commandMap.registerAll(
