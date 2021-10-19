@@ -26,7 +26,8 @@ class Main: PluginBase(), Listener {
     @EventHandler
     fun onJoin(event: PlayerJoinEvent) {
         val player = event.player
-        if(!player.hasPlayedBefore()) return
+        if(player.hasPlayedBefore()) return
+        logger.info("${player.name} のデータを登録します")
         transaction {
             PlayerStatus.insert {
                 it[uuid] = player.uniqueId
@@ -37,5 +38,6 @@ class Main: PluginBase(), Listener {
                 it[break_amount] = 0
             }
         }
+        logger.info("${player.name} のデータを新規に作成しました")
     }
 }

@@ -22,7 +22,7 @@ class StatusCommand: Command("status") {
         val uuid = sender.uniqueId
         transaction {
             // プレイヤーデータの呼び出し
-            val data = PlayerStatus.select {PlayerStatus.uuid eq uuid}
+            val data = PlayerStatus.select{PlayerStatus.uuid eq uuid}
 
             val name = sender.name
             val money = data.single()[PlayerStatus.money]
@@ -31,10 +31,10 @@ class StatusCommand: Command("status") {
             val breakAmount = data.single()[PlayerStatus.break_amount]
 
             sender.sendMessage("""
-                §2$name：
-                  所持金　：$money
-                  レベル　：$level（総経験値：$exp）
-                  総整地量：$breakAmount
+                §2§l$name§r：
+                  §r§a所持金§r：$money
+                  §r§aレベル§r：$level§8（総経験値：$exp）
+                  §r§a総整地量§r：$breakAmount
             """.trimIndent())
             }
         return true
